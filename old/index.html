@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>白昼。或いは夜。若しくは明朝。</title>
+    <link rel="stylesheet" href="resources/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="resources/css2.css" rel="stylesheet">
+	<link rel="icon" href="asset/icon.gif">
+	
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+	
+	<!-- For F**k mobile user -->
+	<script src="resources/js/anti-mobile.js"></script>
+</head>
+<body>
+
+    <!-- 上部: ヒーローセクション -->
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">「或いは夜」のポータルページ</h1>
+            <p class="hero-subtitle">Code, Create, and Explore the Digital Frontier.</p>
+            <p class="hero-subtitle">たぶんだけど、絶対に役に立たないものしか作らない。役立つものを追求し続けるのは間違いでは？</p>
+        </div>
+		
+		<br>
+
+    </header>
+		<section class="page-section" id="guestbook">
+
+			
+<!-- 			<div id="admin-panel" class="admin-panel" style="display: none;">
+				<h4>管理者パネル</h4>
+				<div class="admin-form">
+					<label for="admin-count-input">カウンター値の変更:</label>
+					<input type="number" id="admin-count-input">
+					<button id="admin-count-submit">更新</button>
+				</div>
+				<p class="admin-note"></p>
+			</div> -->
+			
+            <h2 class="section-title animate-target">Guestbook</h2>
+			
+            <div class="guestbook-content animate-target">
+                <p>
+                    このサイトには <strong id="visitor-count">...</strong> 人が訪れました。
+                    よろしければ、あなたの名前を刻んでいってください。<br>
+					ていうか～～GithubPagesとかいう静的ページにこんな動的な要素つくれるのすごくないすか<br>
+					フロントエンドでここまでやってんすよ
+                </p>
+				<div class="signature-form" id="signature-form-area"> 
+					<input type="text" id="signature-name" placeholder="お名前 (15文字まで)" maxlength="15">
+					<button id="submit-signature">署名する</button>
+				</div>
+                <div id="signature-list">
+                    <p>署名データを読み込み中...</p>
+                </div>
+				<p>この署名データはFirebaseに保存されてるわけでGithubには一行も書いてないのだから、ここにどんな下ネタ書いてもアカウントの停止措置にはならないのでは？</p>
+				<img src="./asset/Good.png" class="guestbookImg"></img>
+				<p>↑やりやがったボット許さない（ボットじゃなかったらありがとうだけど）</p>
+				<p>なんと、&lt;script>っていう名前で登録されてて。<br>XSS脆弱性によってぶち壊れてましたわ、許さない。</p>
+				<!-- left than、でlt;なのおもろい -->
+            </div>
+			<!-- 次何かあればGoogleアカウント必須にしてやるからな、メアドごと収集してやるからな -->
+			
+			
+			
+        </section>
+    <main>
+			<!-- 中部: プロジェクトセクション -->
+			<section class="page-section" id="projects">
+				<h2 class="section-title animate-target">Projects</h2>
+				
+				<h1 class="description">...の中でも、特に自身のあるもの。</h1>
+				
+				<div class="project-card animate-target">
+					<a href="https://aruihayoru.github.io/HelloWorld/" target="_blank" class="card-link">
+						<div class="card-content">
+							<h3 class="card-title">テスト</h3>
+							<p class="card-description">JavaScriptのテストです！！💦冗長な部分があるかもしれないので批評してくださるとありがたいです🙇</p>
+							<div class="card-tags">
+								<span class="card-tag">JavaScript</span>
+								<span class="card-tag">HTML/CSS</span>
+							</div>
+						</div>
+					</a>
+				</div>
+				
+				<div class="project-card animate-target">
+					<a href="https://aruihayoru.github.io/PhantomWords/" target="_blank" class="card-link">
+						<div class="card-content">
+							<h3 class="card-title">PhandtomWords</h3>
+							<p class="card-description">マルコフ連鎖のみの存在しない単語辞典。運次第ですごい面白い。</p>
+							 <div class="card-tags">
+								<span class="card-tag">JavaScript</span>
+								<span class="card-tag">Python</span>
+								<span class="card-tag">HTML/CSS</span>
+							</div>
+						</div>
+					</a>
+				</div>
+				
+				<div class="project-card animate-target">
+					<a href="https://aruihayoru.github.io/no-js-minesweeper/" target="_blank" class="card-link">
+						<div class="card-content">
+							<h3 class="card-title">CheckboxHack:MineSweeper</h3>
+							<p class="card-description">「もしゲームのロジックを全てCSSで書いたら？」という思考実験を形にした作品。プログラム言語なしでのゲーム実装という、前代未聞の離れ業を成し遂げています。頭が！！！いい！！！きっと！！！</p>
+							 <div class="card-tags">
+								<span class="card-tag">HTML/CSS</span>
+							</div>
+						</div>
+					</a>
+				</div>
+				
+				<div class="project-card animate-target">
+					<a href="https://aruihayoru.github.io/LLMimi" target="_blank" class="card-link">
+						<div class="card-content">
+							<h3 class="card-title">LLMimi</h3>
+							<p class="card-description">たぶん一番力入れたんじゃないかな、独自の音声フォーマットをLLM向けに最適化したもの。うまいこといけばAI生成楽曲に革命起こせるカモ？</p>
+							 <div class="card-tags">
+								<span class="card-tag">JavaScript</span>
+								<span class="card-tag">HTML/CSS</span>
+							</div>
+						</div>
+					</a>
+					<a href="https://aruihayoru.github.io/Mimi" target="_blank" class="card-link">
+						<div class="card-content">
+							<h3 class="card-title">Music Instrument Minimal Interface. Mimi!</h3>
+							<p class="card-description">くっそかわえ～～～な音声フォーマット。かわいいね。チップチューンだよ！LLMにとっても向いてる！！</p>
+							 <div class="card-tags">
+								<span class="card-tag">JavaScript</span>
+								<span class="card-tag">HTML/CSS</span>
+							</div>
+						</div>
+					</a>
+					
+				</div>
+
+				<div class="project-card animate-target">
+					<a href="https://aruihayoru.github.io/TrickArt/" target="_blank" class="card-link">
+						<div class="card-content">
+							<h3 class="card-title">アナモルフォーシスGen</h3>
+							<p class="card-description">画像を別の図形に投影して....っていう、錯視アートの一種。Gemini2.5proくんはシェーダーつくるのすごい上手ってわかりました。three.js</p>
+							<div class="card-tags">
+								<span class="card-tag">JavaScript</span>
+								<span class="card-tag">HTML/CSS</span>
+							</div>
+						</div>
+					</a>
+				</div>
+				
+				<h1 class="description"><a href="resources/project.html" class="card-link">全てのプロジェクトはこちらから</a></h1>
+				
+			</section>
+
+			<!-- My Lab セクション -->
+			<section class="page-section" id="lab">
+				<h2 class="section-title animate-target">My Lab</h2>
+
+				<div class="lab-grid">
+					<div class="lab-item animate-target">
+						<h4 class="lab-title">27 minitue</h4>
+						<p class="lab-description">プレイヤーは27分間ごとにリセットされる。コンソールを打ち続け、エンディングを探す。たぶん。きっと。</p>
+					</div>
+				</div>
+				
+				<br>
+
+				<div class="lab-grid">
+					<div class="lab-item animate-target">
+						<h4 class="lab-title">Emoji Factory</h4>
+						<p class="lab-description">Emojiを使役し、稼ぎを生み出させ続ける。Emojiに人権はない。</p>
+					</div>
+				</div>
+				
+				<br>
+				
+				<div class="lab-grid">
+					<div class="lab-item animate-target">
+						<h4 class="lab-title">０F:Limbo</h4>
+						<p class="lab-description">Emojiを仲間にし、最上階若しくは最下層を目指せ。</p>
+					</div>
+				</div>
+
+				<br>
+
+
+			</section>
+
+			<!-- 下部: About Meセクション -->
+			<section class="page-section" id="about">
+				<h2 class="section-title animate-target">About Me</h2>
+				<div class="about-content animate-target">
+
+					<div class="about-header">
+						<img src="./asset/icon.gif" alt="" class="about-icon">
+						<h3>Aruiha Yoru (或いは 夜)</h3>
+					</div>
+						
+					<div class="about-description">
+						<p>ゼンレスゾーンゼロの星見雅が大好きな未成年です</p>
+						<p>html/JavaScript/cssについてしかあんま知りません</p>
+						<p>文字通り「役に立たない」ものを作ります。DOMで3D空間を構築したり</p>
+						<p>コメントの際しかクリニカルな表現が使えません。なんならコメントも気分次第です</p>
+						<p>文書フェチ。デベロッパーを名乗って良いのだろうか？</p>
+						<p>接続詞が好きです。それと海洋生物。海獣医になりたいな？</p>
+						<p>ちなみに...時によって或葉ちゃんかもね</p>
+						
+						<br>
+						
+						<img src="./asset/hackall.png" class="guestbookImg">
+						<p>それと、Hackall V3の最終問題正解者ですわよ</p>
+						<a href="https://hackall.tech" class="card-link" target="_blank">みんなも、やろう！</a>
+					</div>
+					<div class="about-links">
+						<a href="https://x.com/AruihaYoru" target="_blank">Twitter（現X）</a>
+						<a href="https://github.com/AruihaYoru" target="_blank">Github</a>
+						<a href="https://qiita.com/AruihaYoru" target="_blank">qiita</a>
+						<a href="./asset/或いはベーカリー.txt">CookieClicker(2025/11/30)</a>
+						<a onclick="javascript:void(0)">void</a>
+						<!-- なんかあったらコメントアウト外すやつ -->
+						<!-- <a href="https://www.youtube.com/@OrNight-Zzz" target="_blank">Youtube</a> -->
+					</div>
+					<div class="about-links">
+						<p>Welcome! Aruiha.</p>
+						<a href="#" id="auth-button">管理者としてログイン</a>
+					</div>
+					
+
+
+				</div>
+			</section>
+
+
+
+
+			<!-- Inspirations セクション -->
+			<!-- ...を改築したものですわよ -->
+			<section class="page-section" id="inspirations">
+				<h2 class="section-title animate-target"></h2>
+				<div class="inspiration-list">
+				
+					<div class="inspiration-tab">
+						<h1 class="description">(KNOT)相互リンク</h1>
+						<div class="inspiration-item animate-target">
+							<a href="https://nanasi-rasi.net/" target="_blank">
+								<h4 class="inspiration-title">ななしぃ</h4>
+								<p class="inspiration-comment">ゼンゼロやってて𝐵𝐼𝐺 𝐿𝑂𝑉𝐸―――だぜ　ストレージに困ってる人　サーバー関連に強い人 </p>
+							</a>
+						</div>
+					</div>
+
+
+					<!-- <div class="inspiration-tab"> -->
+						<!-- <h1 class="description">ほしいもの</h1> -->
+
+						<!-- <div class="inspiration-item animate-target inspiration-like-list" style="background-color: rgba(0,0,0,0.3)"> -->
+							<!-- <div class="inspiration-text"> -->
+								<!-- <h4 class="inspiration-like">どめいん</h4> -->
+								<!-- <p class="inspiration-like-comment">欲しい...欲しくない？</p> -->
+								<!-- <p class="inspiration-like-comment">いうておれの家はカスの回線とUbuntu Server入れた元Windows8のPCしかないんよね</p> -->
+								<!-- <p class="inspiration-like-comment">あと金がねえ、更新料払えねえ</p> -->
+								<!-- <p class="inspiration-like-comment">情報セキュリティに関してはある程度できるけど、つくるとしても脆弱性たくさん残しておきたい</p> -->
+							<!-- </div> -->
+						<!-- </div> -->
+						
+						<!-- <div class="inspiration-item animate-target inspiration-like-list" style="background-color: rgba(0,0,0,0.3)"> -->
+							<!-- <div class="inspiration-text"> -->
+								<!-- <h4 class="inspiration-like">黒塗り文書</h4> -->
+								<!-- <p class="inspiration-like-comment">欲しい...欲しくない？</p> -->
+								<!-- <p class="inspiration-like-comment">欲しい（切実）。ガチで（切実）。</p> -->
+								<!-- <p class="inspiration-like-comment">用途はないけど、本当に持っておきたい。絶対に有効活用するから。</p> -->
+								<!-- <p class="inspiration-like-comment">いるんだよというか。防衛省というか内閣府合同庁舎にいってゴニョゴニョしたらもらえないかな</p> -->
+							<!-- </div> -->
+						<!-- </div> -->
+						<!-- <div class="inspiration-item animate-target inspiration-like-list" style="background-color: rgba(0,0,0,0.3)"> -->
+							<!-- <div class="inspiration-text"> -->
+								<!-- <h4 class="inspiration-like">記憶力</h4> -->
+								<!-- <p class="inspiration-like-comment">最近、自分がaruihayoru.github.ioという場所にポータルページを置いたことすら忘れてしまいました。</p> -->
+								<!-- <p class="inspiration-like-comment">なぜ、こうも私から記憶が抜け出していくのでしょうか。</p> -->
+								<!-- <p class="inspiration-like-comment">どうすればよいのでしょうか。</p> -->
+								<!-- <p class="inspiration-like-comment">いうて辛くはない</p> -->
+							<!-- </div> -->
+						<!-- </div> -->
+						
+					<!-- </div> -->
+	
+					<div class="inspiration-tab">
+						<h1 class="description">すきなもの</h1>
+
+						<div class="inspiration-item animate-target inspiration-like-list" style="background-image: url('asset/like/ZZZ-bg.png')">
+							<img src="./asset/like/ZZZ-icon.png" alt="柳さんの刀身" class="inspiration-image">
+							<div class="inspiration-text">
+								<h4 class="inspiration-like">ゼンレスゾーンゼロ</h4>
+								<p class="inspiration-like-comment">←これは柳さんの薙刀の先端、かっこいいよね。</p>
+								<p class="inspiration-like-comment">星見雅っていいですよね、ついでにいうと私は星見雅なんだよね</p>
+							</div>
+						</div>
+						<div class="inspiration-item animate-target inspiration-like-list" style="background-image: url('asset/like/Fortnite_bg.png')">
+							<img src="asset/like/Fortnite_icon.png" alt="Fortnite" class="inspiration-image">
+							<div class="inspiration-text">
+								<h4 class="inspiration-like">Fortnite</h4>
+								<p class="inspiration-like-comment">先日、CH6のフィナーレがありましたね。CH7にはビルがあると聞いているので、うれしい限りです。</p>
+								<p class="inspiration-like-comment">ホープが好きなんですよ、ホープが。ほんとに。センスが良い。</p>
+							</div>
+						</div>
+
+						<div class="inspiration-item animate-target inspiration-like-list" style="background-image: url('asset/like/warframe-bg.png')">
+							<img src="./asset/like/warframe-icon.png" alt="MyWift-Garuda-Warframe" class="inspiration-image">
+							<div class="inspiration-text">
+								<h4 class="inspiration-like">Warframe</h4>
+								<p class="inspiration-like-comment">←私の最推し★嫁★嫁★GarudaPrime-chanかわいいね？！ああかわいいね！？</p>
+								<p class="inspiration-like-comment">ニンジャなら無料！Warframe最高！Warframe最高！お前もWarframe最高と言わないか！</p>
+							</div>
+						</div>
+
+						<div class="inspiration-item animate-target inspiration-like-list" style="background-image: url('./asset/like/mgs-bg.png')">
+							<img src="./asset/like/mgs-icon.png" alt="メタルギアソリッド" class="inspiration-image">
+							<div class="inspiration-text">
+								<h4 class="inspiration-like">メタルギアソリッド</h4>
+								<p class="inspiration-like-comment">実はMGS4以外の正史すべてやってるんですよね私、Vが個人的に好き</p>
+								<p class="inspiration-like-comment">（png形式の素材がないのでNoImage）（画像はimageです）</p>		
+							</div>
+						</div>
+
+					</div>
+
+					</div>
+				</div>
+				
+			</section>
+
+
+		
+    </main>
+	<footer style="text-align: center; padding: 20px; color: #888; font-size: 12px; margin-top: 50px;">
+	  <p>
+		当サイトは一個人が制作したポートフォリオサイトであり、各企業の公式なものではありません。
+		<br>
+		掲載されているコンテンツの著作権、商標権、その他一切の権利は、それぞれの権利所有者に帰属します。
+	  </p>
+	  <p>
+		---
+	  </p>
+	  <p>
+		"Warframe" and the Warframe logo are registered trademarks of Digital Extremes Ltd.
+		<br>
+		© Epic Games, Inc. Fortnite and its logo are trademarks of Epic Games, Inc. in the US and elsewhere.
+		<br>
+		© COGNOSPHERE. All Rights Reserved. 「ゼンレスゾーンゼロ」及びそのロゴは株式会社COGNOSPHEREの商標または登録商標です。
+		<br>
+		© Konami Digital Entertainment
+	  </p>
+	</footer>
+	
+	
+	<script src="resources/js/script.js"></script>
+	<script src="resources/js/ReadMe,Now.js"></script>
+
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
